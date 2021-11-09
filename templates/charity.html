@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="mb-4">Charity Profile - {{ charity or 'MOCK CHARITY' }}</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-5">
+      <div class="col-12 col-lg-6">
+
+        <div class="row col-sm-12 col-12 square">
+          <div class="card shadow-sm rounded bg-light">
+            <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+            <div class="overlay">
+              <p class="text">Boat Homes for All</p>
+            </div>
+          </div>
+        </div>
+  
+        <h4>Charity Category: {{charity_category or 'Animals'}}</h4>
+        <h4>Rating: {{charity_rating or 5}} Stars</h4>
+        <h4>About:</h4>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          <div class="col">
+            <p>The American Society for the Prevention of Cruelty to Animals is a non-profit organization dedicated to preventing cruelty to animals. Based in New York City since its inception in 1866, the organization's mission is "to provide effective means for the prevention of cruelty to animals throughout the United States."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <!-- THANK YOU DONORS -->
+        <h4>Thank you to our donors:</h4>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          
+          <div class="col-sm-4 col-4 square">
+            <a href="" class="text-decoration-none text-dark">
+              <div class="card shadow-sm rounded bg-light">
+                <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+                <div class="overlay">
+                  <p class="text">Boat Homes for All</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 col-4 square">
+            <a href="" class="text-decoration-none text-dark">
+              <div class="card shadow-sm rounded bg-light">
+                <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+                <div class="overlay">
+                  <p class="text">Boat Homes for All</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4 col-4 square">
+            <a href="" class="text-decoration-none text-dark">
+              <div class="card shadow-sm rounded bg-light">
+                <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+                <div class="overlay">
+                  <p class="text">Boat Homes for All</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+{% endblock %}

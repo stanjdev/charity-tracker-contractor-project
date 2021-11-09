@@ -4,18 +4,18 @@
   <div class="container d-flex flex-column justify-content-center align-items-center " style="height: 90vh;">
     <h2 class="mb-4">Sign Up</h2>
     <div class="card rounded bg-light p-3" style="width: 25rem; height: 27rem;">
-      <form class="card-body d-flex flex-column justify-content-around" action="" method="get">
+      <form class="card-body d-flex flex-column justify-content-around" action="/signup" method="POST">
         <div class="d-flex flex-column">
-          <h6>Email:</h6>
-          <input type="email" required>
+          <label for="email">Email:</label>
+          <input class="form-control" type="email" name="email" id="email" required>
         </div>
         <div class="d-flex flex-column">
-          <h6>Password:</h6>
-          <input type="password" required>
+          <label for="password">Password:</label>
+          <input class="form-control" type="password" name="password" id="password" required>
         </div>
         <div class="d-flex flex-column">
-          <h6>Confirm Password:</h6>
-          <input type="password" required>
+          <label for="confirm_password">Confirm Password:</label>
+          <input class="form-control" type="password" name="confirm_password" id="confirm_password" required>
         </div>
         <button type="submit" class="btn btn-info">Sign Up</button>
       </form>

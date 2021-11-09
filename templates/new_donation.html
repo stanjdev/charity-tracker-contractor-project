@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container d-flex flex-column justify-content-center align-items-center " style="height: 90vh;">
+    <h2 class="mb-4">Track a Donation</h2>
+    <div class="card rounded bg-light p-3" style="width: 25rem; height: 27rem;">
+      <div class="card-body d-flex flex-column justify-content-around">
+        <form action="/donation" method="POST" class="d-flex flex-column justify-content-around" style="height: 100%">
+          <!-- CHARITY NAME -->
+          <div class="d-flex flex-column">
+            <label for='charity_name'>Name of charity:</label>
+            <input class="form-control" type="text" id="charity_name" name="charity_name" required>
+          </div>
+          <!-- DONATION AMOUNT -->
+          <div class="d-flex flex-column">
+            <label for="donation_amount">Enter donation amount:</label>
+            <div class="d-flex justify-content-center align-items-center">
+              <span class="form-control bg-light" style="width: 35px; border-top-right-radius: 0; border-bottom-right-radius: 0;">$</span>
+              <input 
+              class="form-control" 
+              style="border-bottom-left-radius: 0; border-top-left-radius: 0;" 
+              type="number" 
+              id="donation_amount" 
+              name="donation_amount" 
+              required min="1"
+              >
+            </div>
+          </div>
+          <!-- DATE DONATED -->
+          <div class="d-flex flex-column">
+            <label for="date_donated">Date donated:</label>
+            <input class="form-control" type="date" id="date_donated" name="date_donated" required>
+          </div>
+          <!-- SUBMIT BUTTON -->
+          <div class="form-group align-self-center">
+            <button type="submit" class="btn btn-info ">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

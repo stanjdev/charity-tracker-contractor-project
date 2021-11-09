@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="mb-4">Profile - {{ user or 'GUEST USER' }}</h2>
+    <h3>Total Donated: ${{total_donated or 110}}</h3>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-5">
+      <div class="col-12 col-lg-6">
+            <!-- CHARITIES DONATED TO -->
+            <h4>Charities donated to:</h4>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+              
+              <div class="col-sm-4 col-4 square">
+                <a href="/charity" class="text-decoration-none text-dark">
+                  <div class="card shadow-sm rounded bg-light">
+                    <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+                    <div class="overlay">
+                      <p class="text">Boat Homes for All</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-4 col-4 square">
+                <a href="/charity" class="text-decoration-none text-dark">
+                  <div class="card shadow-sm rounded bg-light">
+                    <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+                    <div class="overlay">
+                      <p class="text">Boat Homes for All</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-sm-4 col-4 square">
+                <a href="/charity" class="text-decoration-none text-dark">
+                  <div class="card shadow-sm rounded bg-light">
+                    <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+                    <div class="overlay">
+                      <p class="text">Boat Homes for All</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            </div>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="card rounded bg-light p-3" style="width: 25rem; height: 27rem;">
+          <div class="card-body d-flex flex-column justify-content-around">
+            <!-- CHARITIES DONATED TO -->
+            <div class="d-flex flex-column">
+              <h4>Favorites:</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+{% endblock %}
