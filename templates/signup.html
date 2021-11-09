@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container d-flex flex-column justify-content-center align-items-center " style="height: 90vh;">
+    <h2 class="mb-4">Sign Up</h2>
+    <div class="card rounded bg-light p-3" style="width: 25rem; height: 27rem;">
+      <form class="card-body d-flex flex-column justify-content-around" action="" method="get">
+        <div class="d-flex flex-column">
+          <h6>Email:</h6>
+          <input type="email" required>
+        </div>
+        <div class="d-flex flex-column">
+          <h6>Password:</h6>
+          <input type="password" required>
+        </div>
+        <div class="d-flex flex-column">
+          <h6>Confirm Password:</h6>
+          <input type="password" required>
+        </div>
+        <button type="submit" class="btn btn-info">Sign Up</button>
+      </form>
+      <small class="align-self-center">Already have a login? <a href="/login">Sign In</a></small>
+    </div>
+  </div>
+{% endblock %}
