@@ -11,6 +11,9 @@ db = client.get_default_database()
 # Donations resource in our MongoDB
 donations = db.donations
 
+# Charities resource in our MongoDB
+charities = db.charities
+
 
 app = Flask(__name__)
 
@@ -80,8 +83,19 @@ def donation_submit():
     'donation_amount': request.form.get('donation_amount'),
     'date_donated': request.form.get('date_donated'),
   }
-  # WRITES TO THE DB
+  # WRITES TO THE donations DB
   donations.insert_one(donation)
+
+  # Check if charity with same name exists. If not, insert one
+  existing_charity = charities.find_one({'name': donation['charity_name']})
+  if not existing_charity:
+    charity = {
+      'name': donation['charity_name'],
+      'category': '',
+      'about': '',
+    }
+    charities.insert_one(charity)
+
   return redirect(url_for('donations_index'))
 
 # GET - EDIT form
@@ -117,20 +131,58 @@ def donations_delete(donation_id):
 
 
 
-
-
-
 # GET Profile page
 @app.route('/profile')
 def donor_profile():
-  return render_template('profile.html')
+  total_donated = 0
+  for donation in donations.find():
+    total_donated += int(donation['donation_amount'])
+  print(total_donated)
+
+  user = {
+    'name': 'Stan',
+    'total_donated': total_donated,
+    'charities_donated_to': donations.find()
+  }
+  return render_template('profile.html', user=user, donations=donations.find(), charities=charities.find())
+
 
 # GET Charity profile page
-@app.route('/charity')
-def charity_profile():
-  return render_template('charity.html')
+# GET — /charities:/charity_name — one charity {k: v}
+@app.route('/charities/<charity_name>')
+def charity_profile(charity_name):
+  charity = charities.find_one({'name': charity_name})
+  return render_template('charity.html', charity=charity)
+
+# # POST - /charities create a new charity when a new one is entered in the donation form
+# ADDING A NEW DONATION CREATES ONE ALREADY.
 
 
+
+
+
+
+# GET - EDIT form for charity
+@app.route('/charities/<charity_name>/edit')
+def charity_edit_form(charity_name):
+  charity = charities.find_one({'name': charity_name})
+  # get the charity object with the info to put in 'value' in each input
+  return render_template('charity_edit_form.html', charity=charity)
+
+
+# PUT/PATCH - UPDATE charity information
+@app.route('/charities/<charity_name>', methods=['POST'])
+def charities_update(charity_name):
+  updated_charity = {
+    'name': request.form.get('charity_name'),
+    'category': request.form.get('charity_category'),
+    'about': request.form.get('about_charity')
+  }
+  charities.update_one(
+    {'name': charity_name},
+    {'$set': updated_charity}
+  )
+  return redirect(url_for('charity_profile', charity_name=charity_name))
 
 
 if __name__ == '__main__':

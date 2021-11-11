@@ -1,0 +1,17 @@
+{% for donation in donations %}
+<div class="col-sm-4 col-4 square">
+  <a href="/donations/{{ donation._id }}" class="text-decoration-none text-dark">
+    <div class="card shadow-sm rounded bg-light">
+      <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480" alt="{{ donation.charity_name }}">
+      <div class="overlay">
+        <p class="text">{{ donation.charity_name }}</p>
+      </div>
+      <small><strong>{{ donation.charity_name }}</small></strong>
+      <small>${{ donation.donation_amount }}</small>
+      <small>${{ donation.date_donated }}</small>
+    </div>
+  </a>
+  <!-- <a href='/donations/{{ donation._id }}/edit' class="btn btn-warning">EDIT</a>
+  <a href='/donations/{{ donation._id }}/delete' class="btn btn-danger">DELETE</a> -->
+</div>
+{% endfor %}

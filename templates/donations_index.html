@@ -4,38 +4,10 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-5">
       <div class="col-12 col-lg-6">
-          <h4>All donations:</h4>
-
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-            {% for donation in donations %}
-              <div class="col-sm-4 col-4 square">
-                <a href="/donations/{{ donation._id }}" class="text-decoration-none text-dark">
-                  <div class="card shadow-sm rounded bg-light">
-                    <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
-                    <div class="overlay">
-                      <p class="text">{{ donation.charity_name }}</p>
-                      <p class="text">{{ donation.donation_amount }}</p>
-                      <p class="text">{{ donation.date_donated }}</p>
-                      <p class="text">{{ donation._id }}</p>
-                    </div>
-                  </div>
-                </a>
-                <a href='/donations/{{ donation._id }}/edit'>EDIT</a>
-                <a href='/donations/{{ donation._id }}/delete'>DELETE</a>
-              </div>
-            {% endfor %}
-            <div class="col-sm-4 col-4 square">
-              <a href="/charity" class="text-decoration-none text-dark">
-                <div class="card shadow-sm rounded bg-light">
-                  <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
-                  <div class="overlay">
-                    <p class="text">Boat Homes for All</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-          </div>
+        <h4>All donations:</h4>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          {% include 'partials/donations_show_for_loop.html' %}
+        </div>
       </div>
     </div>
   </div>
