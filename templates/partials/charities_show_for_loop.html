@@ -1,0 +1,13 @@
+{% for charity in charities %}
+<div class="col-sm-4 col-4 square">
+  <a href="/charities/{{ charity.name }}" class="text-decoration-none text-dark">
+    <div class="card shadow-sm rounded bg-light">
+      <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480" alt="{{ charity.name }}">
+      <div class="overlay">
+        <p class="text">{{ charity.name }}</p>
+      </div>
+      <small><strong>{{ charity.name }}</small></strong>
+    </div>
+  </a>
+</div>
+{% endfor %}

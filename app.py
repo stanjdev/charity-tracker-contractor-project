@@ -147,8 +147,18 @@ def donor_profile():
   return render_template('profile.html', user=user, donations=donations.find(), charities=charities.find())
 
 
-# GET Charity profile page
-# GET — /charities:/charity_name — one charity {k: v}
+
+
+
+
+# GET ALL Charities /charities
+@app.route('/charities')
+def charities_all():
+  return render_template('charities_all.html', charities=charities.find())
+
+
+# GET SHOW one Charity profile page
+# GET — /charities:/charity_name — SHOW one charity {k: v}
 @app.route('/charities/<charity_name>')
 def charity_profile(charity_name):
   charity = charities.find_one({'name': charity_name})
@@ -156,9 +166,6 @@ def charity_profile(charity_name):
 
 # # POST - /charities create a new charity when a new one is entered in the donation form
 # ADDING A NEW DONATION CREATES ONE ALREADY.
-
-
-
 
 
 
@@ -182,7 +189,7 @@ def charities_update(charity_name):
     {'name': charity_name},
     {'$set': updated_charity}
   )
-  return redirect(url_for('charity_profile', charity_name=charity_name))
+  return redirect(url_for('charity_profile', charity_name=updated_charity['name']))
 
 
 if __name__ == '__main__':
