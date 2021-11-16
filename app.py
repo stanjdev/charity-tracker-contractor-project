@@ -4,15 +4,18 @@ from bson.objectid import ObjectId
 import os
 
 # MONGO_URI is Config Var for Heroku
-host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
-client = MongoClient(host=host)
+# host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
+# client = MongoClient(host=host)
+
+client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.test
 
 # client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/charity_tracker?retryWrites=true&w=majority")
 
 # client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 # db = client.test
 
-db = client.get_default_database()
+# db = client.get_default_database()
 
 # Donations resource in our MongoDB
 donations = db.donations
@@ -21,42 +24,6 @@ donations = db.donations
 charities = db.charities
 
 app = Flask(__name__)
-
-
-
-# GET login page
-@app.route('/login')
-def login_form():
-  return render_template('login.html')
-
-# POST to log user in
-@app.route('/login', methods=['POST'])
-def login():
-  user = {
-    'email': request.form.get('email'),
-    'password': request.form.get('password')
-  }
-  print(user)
-  return render_template('donations_new.html')
-
-# GET sign up page
-@app.route('/signup')
-def signup_form():
-  return render_template('signup.html')
-
-# POST to register new user
-@app.route('/signup', methods=['POST'])
-def signup():
-  new_user = {
-    'email': request.form.get('email'),
-    'password': request.form.get('password'),
-    'confirm_password': request.form.get('confirm_password'),
-  }
-  print(new_user)
-  return render_template('login.html')
-
-
-
 
 
 
@@ -194,6 +161,49 @@ def charities_update(charity_name):
     {'$set': updated_charity}
   )
   return redirect(url_for('charity_profile', charity_name=updated_charity['name']))
+
+
+
+
+
+
+
+# GET login page
+@app.route('/login')
+def login_form():
+  return render_template('login.html')
+
+# POST to log user in
+@app.route('/login', methods=['POST'])
+def login():
+  user = {
+    'email': request.form.get('email'),
+    'password': request.form.get('password')
+  }
+  print(user)
+  return render_template('donations_new.html')
+
+# GET sign up page
+@app.route('/signup')
+def signup_form():
+  return render_template('signup.html')
+
+# POST to register new user
+@app.route('/signup', methods=['POST'])
+def signup():
+  new_user = {
+    'email': request.form.get('email'),
+    'password': request.form.get('password'),
+    'confirm_password': request.form.get('confirm_password'),
+  }
+  print(new_user)
+  return render_template('login.html')
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
