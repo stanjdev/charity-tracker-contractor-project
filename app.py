@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 import os
 
 # MONGO_URI is Config Var for Heroku
-# host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
+host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
 # client = MongoClient(host=host)
 
 client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/charityTracker?retryWrites=true&w=majority")
