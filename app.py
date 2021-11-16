@@ -3,7 +3,7 @@ import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 
-# MONGO_URI is Config Var for heroku later.
+# MONGO_URI is Config Var for Heroku
 host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
 client = MongoClient(host=host)
 db = client.get_default_database()
@@ -14,9 +14,7 @@ donations = db.donations
 # Charities resource in our MongoDB
 charities = db.charities
 
-
 app = Flask(__name__)
-
 
 
 
@@ -61,7 +59,7 @@ def signup():
 # GET - INDEX ROOT Route - HOME PAGE, ALL DONATIONS
 @app.route('/')
 def donations_index():
-  return render_template('donations_index.html', donations=donations.find() or {})
+  return render_template('donations_index.html', donations=donations.find())
 
 # GET - SHOW a specific donation from donation_id
 @app.route('/donations/<donation_id>')
