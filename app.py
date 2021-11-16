@@ -7,14 +7,6 @@ import os
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/charity_tracker')
 client = MongoClient(host=host)
 
-# client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/charityTracker?retryWrites=true&w=majority")
-# db = client.test
-
-# client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/charity_tracker?retryWrites=true&w=majority")
-
-# client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-# db = client.test
-
 db = client.get_default_database()
 
 # Donations resource in our MongoDB
