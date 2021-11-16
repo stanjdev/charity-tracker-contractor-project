@@ -12,15 +12,15 @@
 
         <div class="row col-sm-12 col-12 square">
           <div class="card shadow-sm rounded bg-light">
-            <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
+            <img src="https://quilterscornerva.com/wp-content/uploads/woocommerce-placeholder-457x457.jpg"  alt="Outdoor getaways">
             <div class="overlay">
               <p class="text">{{ charity.name }}</p>
             </div>
           </div>
         </div>
   
-        <h4>Category: {{charity.category or 'Animals'}}</h4>
-        <h4>Rating: {{charity_rating or 5}} Stars</h4>
+        <h4>Category: {{charity.category.capitalize() or 'Animals'}}</h4>
+
         <h4>About:</h4>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           <div class="col">
@@ -30,42 +30,10 @@
       </div>
 
       <div class="col-12 col-lg-6">
-        <!-- THANK YOU DONORS -->
-        <h4>Thank you to our donors:</h4>
-
+        <!-- DONATIONS MADE -->
+        <h4>Donations Received:</h4>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-          
-          <div class="col-sm-4 col-4 square">
-            <a href="" class="text-decoration-none text-dark">
-              <div class="card shadow-sm rounded bg-light">
-                <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
-                <div class="overlay">
-                  <p class="text">Boat Homes for All</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-4 col-4 square">
-            <a href="" class="text-decoration-none text-dark">
-              <div class="card shadow-sm rounded bg-light">
-                <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
-                <div class="overlay">
-                  <p class="text">Boat Homes for All</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-4 col-4 square">
-            <a href="" class="text-decoration-none text-dark">
-              <div class="card shadow-sm rounded bg-light">
-                <img src="https://a0.muscache.com/im/pictures/36f53e61-db8d-403c-9122-5b761c0e4264.jpg?im_w=480"  alt="Outdoor getaways">
-                <div class="overlay">
-                  <p class="text">Boat Homes for All</p>
-                </div>
-              </div>
-            </a>
-          </div>
-
+          {% include 'partials/donations_show_for_loop.html' %}
         </div>
       </div>
       

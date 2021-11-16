@@ -125,11 +125,11 @@ def charities_all():
 @app.route('/charities/<charity_name>')
 def charity_profile(charity_name):
   charity = charities.find_one({'name': charity_name})
-  return render_template('charity.html', charity=charity)
+
+  return render_template('charity.html', charity=charity, donations=donations.find({'charity_name': charity_name}))
 
 # # POST - /charities create a new charity when a new one is entered in the donation form
 # ADDING A NEW DONATION CREATES ONE ALREADY.
-
 
 
 # GET - EDIT form for charity

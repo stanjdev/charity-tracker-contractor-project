@@ -43,12 +43,17 @@
   <!-- Add in navbar -->
   {% include 'partials/navbar.html' %}
   <!-- Container class -->
-  <div class="container">
+  <div class="container min-vh-100">
     {% block content %}{% endblock %}
   </div>
 
   <!-- Footer -->
- 
+  <footer class='mt-auto page-footer font-small blue pt-4 bg-dark '>
+    <div class='footer-copyright text-center py-3 text-light'>© 2021 Copyright, SJ.
+      <a href='https://github.com/stanjdev/charity-tracker-contractor-project' target="_blank" rel="noreferrer noopener">GitHub</a>
+    </div>
+  </footer>
+  
  
   <!-- We'll use jquery version 3.3.1 for this tutorial -->
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,13 +1,18 @@
 {% for donation in donations %}
-<div class="col-sm-4 col-4 square">
+<div class="col-12 square">
   <a href="/donations/{{ donation._id }}" class="text-decoration-none text-dark">
     <div class="card shadow-sm rounded bg-light">
       <div class="overlay">
         <p class="text">{{ donation.charity_name }}</p>
       </div>
-      <small><strong>{{ donation.charity_name }}</small></strong>
-      <small>${{ donation.donation_amount }}</small>
-      <small>${{ donation.date_donated }}</small>
+      <div class="d-flex justify-content-between p-3">
+        <div>
+          <h6><strong>{{ donation.charity_name }}</strong></h6>
+          <span>${{ donation.donation_amount }}</span>
+        </div>
+        <small>{{ donation.date_donated }}</small>
+      </div>
+
     </div>
   </a>
   <!-- <a href='/donations/{{ donation._id }}/edit' class="btn btn-warning">EDIT</a>

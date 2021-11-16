@@ -2,7 +2,10 @@
 
 {% block content %}
   <div class="container mt-3">
-    <h2 class="mb-4">Donor Profile - {{ user.name or 'GUEST USER' }}</h2>
+    <div class='d-flex'>
+      <h2 class="mb-4">Donor Profile - {{ user.name or 'GUEST USER' }}</h2>
+      <img class='ml-3' src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" height='40' width='40' style="border-radius: 50px;">
+    </div>
     <h3>Total Donated: ${{ user.total_donated or 1100 }}</h3>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-5">
@@ -15,14 +18,10 @@
       </div>
 
       <div class="col-12 col-lg-6">
-        <div class="card rounded bg-light p-3" style="width: 25rem; height: 27rem;">
-          <div class="card-body d-flex flex-column justify-content-around">
-            <!-- Charities Donated To -->
-            <div class="d-flex flex-column">
-              <h4>Donated to:</h4>
-              {% include 'partials/charities_show_for_loop.html' %}
-            </div>
-          </div>
+        <!-- Charities Donated To -->
+        <h4>Donated to:</h4>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 d-flex flex-wrap">
+          {% include 'partials/charities_show_for_loop.html' %}
         </div>
       </div>
     </div>
