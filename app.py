@@ -61,7 +61,7 @@ def signup():
 # GET - INDEX ROOT Route - HOME PAGE, ALL DONATIONS
 @app.route('/')
 def donations_index():
-  return render_template('donations_index.html', donations=donations.find())
+  return render_template('donations_index.html', donations=donations.find() or {})
 
 # GET - SHOW a specific donation from donation_id
 @app.route('/donations/<donation_id>')
