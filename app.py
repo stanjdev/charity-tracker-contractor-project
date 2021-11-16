@@ -4,7 +4,8 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 # MONGO_URI is Config Var for Heroku
-host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
+# host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
+host = os.environ.get('MONGO_URI')
 client = MongoClient(host=host)
 db = client.get_default_database()
 
