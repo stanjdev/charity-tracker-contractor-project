@@ -5,11 +5,11 @@ import os
 
 # MONGO_URI is Config Var for Heroku
 host = os.environ.get('MONGO_URI', 'mongodb://localhost:27017/charity_tracker')
-# client = MongoClient(host=host)
+client = MongoClient(host=host)
 
 # client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/charity_tracker?retryWrites=true&w=majority")
 
-client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+# client = MongoClient("mongodb+srv://stanley:Ogp7hF5ti5S4jcO9@cluster0.1avch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.test
 
 # db = client.get_default_database()
