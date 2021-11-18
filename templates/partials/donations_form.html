@@ -8,12 +8,17 @@
     <input 
       class="form-control" 
       type="text" 
-      id="charity_name" 
+      list='charity_name'
       name="charity_name" 
       value='{{ donation.charity_name }}'
       required
       autofocus
     >
+    <datalist id="charity_name">
+      {% for charity in charities %}
+      <option value='{{ charity.name }}'>{{ charity.name }}</option>
+      {% endfor %}
+    </datalist>
   </div>
   <!-- DONATION AMOUNT -->
   <div class="d-flex flex-column">

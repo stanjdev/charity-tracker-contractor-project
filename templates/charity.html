@@ -4,7 +4,10 @@
   <div class="container">
     <div class='d-flex justify-content-between mt-3'>
       <h2 class="mb-0">Charity Profile - {{ charity.name or 'MOCK CHARITY' }}</h2>
-      <a href='/charities/{{ charity.name }}/edit' class="btn btn-warning">EDIT</a>
+      <div>
+        <a href='/charities/{{ charity.name }}/edit' class="btn btn-warning">EDIT</a>
+        <a href='/charities/{{ charity.name }}/delete' class="btn btn-danger">DELETE</a>
+      </div>
     </div>
     
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-5">
@@ -19,7 +22,7 @@
           </div>
         </div>
   
-        <h4>Category: {{charity.category.capitalize() or 'Animals'}}</h4>
+        <h4>Category: {{charity.category.capitalize() if charity.category else 'Animals'}}</h4>
 
         <h4>About:</h4>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
